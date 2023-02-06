@@ -1,7 +1,7 @@
 import React from 'react';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import { Button } from '@mui/material';
-import styled from '@emotion/styled';
+
+import { CustomButton } from './datePickerStyles';
 
 export const DatePicker: React.FC = () => {
   return (
@@ -10,8 +10,3 @@ export const DatePicker: React.FC = () => {
     </CustomButton>
   );
 };
-
-const CustomButton = styled(Button)({
-  minWidth: "56px",
-  border: 'solid 1px #808080'
-})

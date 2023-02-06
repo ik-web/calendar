@@ -1,14 +1,15 @@
 import { createHashRouter } from 'react-router-dom';
 
-import { EventModal, Home } from '@/pages';
+import { Home } from '@/pages';
+import { AppProvider } from '@/context';
 
 export const router = createHashRouter([
   {
     path: '/',
-    element: <Home />,
-  },
-  {
-    path: '/event/:date',
-    element: <EventModal />,
+    element: (
+      <AppProvider>
+        <Home />
+      </AppProvider>
+    ),
   },
 ]);

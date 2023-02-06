@@ -1,12 +1,9 @@
 import React from 'react';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import {
-  Box,
-  IconButton,
-  styled,
-  Typography
-} from '@mui/material';
+import { IconButton, Typography } from '@mui/material';
+
+import { buttonIconFill, Wrapper } from './monthTogglerStyles';
 
 export const MonthToggler: React.FC = () => {
   const month = new Date().toLocaleString('en-US', { month: 'long' });
@@ -19,22 +16,11 @@ export const MonthToggler: React.FC = () => {
         <NavigateBeforeIcon sx={buttonIconFill} />
       </IconButton>
 
-      <Typography>
-        {mockText}
-      </Typography>
+      <Typography>{mockText}</Typography>
 
       <IconButton>
         <NavigateNextIcon sx={buttonIconFill} />
       </IconButton>
     </Wrapper>
   );
-};
-
-const Wrapper = styled(Box)({
-  display: 'flex',
-  alignItems: 'center',
-});
-
-const buttonIconFill = {
-  color: '#000000',
 };

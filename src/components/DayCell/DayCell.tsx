@@ -1,11 +1,12 @@
 import React from 'react';
-import { styled, TableCell, Box } from '@mui/material';
+import { Box } from '@mui/material';
 
 import {
   EventList,
   ExtendedEventList,
   ShowMoreEventsButton
 } from '@/components';
+import { CustomCellHeading, CustomTableCell, CustomTableCellInner } from './dayCellStyles';
 
 export interface IEventItem {
   id: number;
@@ -66,20 +67,3 @@ export const DayCell: React.FC<IDayCellProps> = ({
     </CustomTableCell>
   );
 };
-
-const CustomTableCell = styled(TableCell)({
-  height: '120px',
-  padding: '4px 8px',
-  background: '#ffffd9',
-  border: '1px solid #808080',
-});
-
-const CustomCellHeading = styled(Box)({
-  display: 'flex',
-  justifyContent: 'space-between',
-  margin: '0 0 4px',
-});
-
-const CustomTableCellInner = styled(Box)({
-  height: '100%',
-});

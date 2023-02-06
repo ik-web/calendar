@@ -1,46 +1,43 @@
 import React from 'react';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import {
-  Box,
-  Container,
-  IconButton,
-  styled
-} from '@mui/material';
+import { Box, Container, IconButton } from '@mui/material';
 
+import { AppProvider } from '@/context';
+import { useAppContext } from '@/hooks/useAppContext';
+import { CalendarHead, CalendarMenu } from './homeStyles';
 import {
-  Calendar,
+  CalendarBody,
   DatePicker,
   MonthToggler,
+  EventModal
 } from '@/components';
 
 export const Home: React.FC = () => {
+  const {
+    createEventMode,
+    editEventMode,
+    openCreateEventMode
+  } = useAppContext();
+
   return (
     <Container sx={{ minWidth: '990px' }}>
-      <CalendarHead>
-        <IconButton>
-          <AddCircleIcon color="primary" fontSize="large" />
-        </IconButton>
+      {createEventMode && <EventModal />}
+      {editEventMode && <EventModal editMode={true} />}
 
-        <CalendarMenu>
-          <MonthToggler />
-          <DatePicker />
-        </CalendarMenu>
-      </CalendarHead>
+      <Box>
+        <CalendarHead>
+          <IconButton onClick={openCreateEventMode}>
+            <AddCircleIcon color="primary" fontSize="large" />
+          </IconButton>
 
-      <Calendar />
+          <CalendarMenu>
+            <MonthToggler />
+            <DatePicker />
+          </CalendarMenu>
+        </CalendarHead>
+
+        <CalendarBody />
+      </Box>
     </Container>
   );
 };
-
-const CalendarHead = styled(Box)({
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  padding: '8px 0',
-});
-
-const CalendarMenu = styled(Box)({
-  display: 'flex',
-  alignItems: 'center',
-  gap: '12px',
-});

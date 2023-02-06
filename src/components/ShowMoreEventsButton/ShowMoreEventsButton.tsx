@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CustomListButton } from '../EventList/EventList';
+import { CustomListButton } from '../EventList/eventListStyles';
 
 interface IShowMoreEventsButtonProps{
   setIsExtendedEventList: (param: boolean) => void;

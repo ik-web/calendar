@@ -17,7 +17,7 @@ const getDayName = (date: Date) => {
   .slice(0, 2)
 };
 
-export const Calendar: React.FC = () => {
+export const CalendarBody: React.FC = () => {
   const month = getMonth();
   const isToday = true;
 

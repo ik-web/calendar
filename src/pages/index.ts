@@ -1,2 +1,2 @@
 export * from './Home/Home';
-export * from './EventModal/EventModal';
+export * from '../components/EventModal/EventModal';
